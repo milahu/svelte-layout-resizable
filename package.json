@@ -1,0 +1,30 @@
+{
+  "name": "svelte-layout-resizable",
+  "version": "0.0.1",
+  "description": "resizable layout component for svelte",
+  "author": "milahu@gmail.com",
+  "license": "CC0-1.0",
+  "svelte": "src/Layout.svelte",
+  "peerDependencies": {
+    "svelte": "^3.0",
+    "scss": "^0.2.4"
+  },
+  "homepage": "https://github.com/milahu/svelte-layout-resizable",
+  "bugs": {
+    "url": "https://github.com/milahu/svelte-layout-resizable/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milahu/svelte-layout-resizable.git"
+  },
+  "keywords": [
+    "svelte",
+    "component",
+    "layout",
+    "resizable",
+    "interactive",
+    "css",
+    "flex",
+    "flexbox"
+  ]
+}
