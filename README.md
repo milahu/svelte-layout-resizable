@@ -33,6 +33,32 @@ if you dont like the `<L>` syntax
 you can do `import Layout from 'svelte-layout-resizable';`  
 and use `<Layout>cell</Layout>`
 
+## build
+
+the component uses `<style lang="scss">`  
+so we add to `rollup.config.js`:
+
+```js
+import sveltePreprocess from 'svelte-preprocess';
+
+export default {
+  plugins: [
+    svelte({
+      preprocess: [
+        // transform scss (etc) in svelte components
+        sveltePreprocess(),
+      ],
+    }),
+  ],
+};
+```
+
+and install
+
+```sh
+npm i -D svelte-preprocess scss
+```
+
 ## style
 
 the component defines only a minimal style  
