@@ -6,8 +6,7 @@
   "license": "CC0-1.0",
   "svelte": "src/Layout.svelte",
   "peerDependencies": {
-    "svelte": "^3.0",
-    "scss": "^0.2.4"
+    "svelte": "^3.0"
   },
   "homepage": "https://github.com/milahu/svelte-layout-resizable",
   "bugs": {

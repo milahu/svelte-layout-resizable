@@ -406,91 +406,68 @@
 
 </script>
 
-<style lang="scss">
+<style>
 
-  $cell_frame: 4px;
-  $handleSize: 1px; // visible size
-  $handlePadding: 4px; // clickable size
-  $handleMargin: -4px;
-  $handleColor: gray;
-  $svelteOrange: #ff3e00;
-  $headColor: $svelteOrange;
+  :root {
+    /* css variables */
+    --handleSize: 1px; /* visible handle size */
+    --handlePadding: 4px; /* clickable size */
+    --handleColor: gray; /* clickable size */
+    --cellFrame: 4px;
+    /* --handleMargin: 0px; */
+  }
 
 
 
-  // resize handles
+  /* resize handles */
 
   :global(.layout-column-resizer) {
-    background-color: $handleColor;
-    flex-basis: $handleSize;
+    height: var(--handleSize) !important;
+    /* width: 99%; avoid overflow */
+    background-color: var(--handleColor);
+    flex-basis: var(--handleSize);
     flex-shrink: 0;
     flex-grow: 0;
-    //height: 50px !important; // TODO dont set style in attribute
-    //width: 100%;
     cursor: row-resize;
     margin: 0;
-    background-clip: content-box; // transparent padding
-    padding-top: $handlePadding;
-    margin-top: $handleMargin;
-
-    //outline: solid 1px green;
+    background-clip: content-box; /* transparent padding */
+    padding-top: var(--handlePadding);
+    /*margin-top: var(--handleMargin);*/
   }
 
   :global(.layout-row-resizer) {
-    background-color: $handleColor;
-    flex-basis: $handleSize;
+    width: var(--handleSize) !important;
+    /* height: 99%; avoid overflow */
+    background-color: var(--handleColor);
+    flex-basis: var(--handleSize);
     flex-shrink: 0;
     flex-grow: 0;
-    //width: $handleSize; // TODO dont set style in attribute
-    //height: 100%;
     cursor: col-resize;
     margin: 0;
-    background-clip: content-box; // transparent padding
-    padding-left: $handlePadding;
-    margin-left: $handleMargin;
-
-    //outline: solid 1px yellow;
-
+    background-clip: content-box; /* transparent padding */
+    padding-left: var(--handlePadding);
+    /*margin-left: var(--handleMargin);*/
   }
 
 
 
-  // moving handles
-  :global(.layout-column-resizer) {
-    height: $handleSize !important;
-    //width: 99%; // avoid overflow
-  }
-
-  :global(.layout-row-resizer) {
-    width: $handleSize !important;
-    //height: 99%; // avoid overflow
-  }
-
-
-
-  .layout-cell > .middle > .center > .head {
-    border-bottom: solid 1px gray;
-    height: 1.36em; // default height in firefox
-    //font-size: 75%;
-    color: $headColor;
-  }
-
-
-
-  :global(body.--layout-is-moving, body.--layout-is-moving *) {
-    // dont select text on resize/drag
+  :global(body.--layout-is-moving),
+  :global(body.--layout-is-moving *) {
+    /* dont select text on resize/drag */
     user-select: none !important;
   }
 
 
 
-  // shortcuts for flex layout
+  /* shortcuts for flex layout */
+
   .layout-column {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     align-content: stretch;
   }
+
   .layout-column.layout-reverse {
     flex-direction: column-reverse;
   }
@@ -501,32 +478,35 @@
     align-items: stretch;
     align-content: stretch;
   }
+
   .layout-row.layout-reverse {
     flex-direction: row-reverse;
   }
 
   .layout-cell {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* frame container */
     align-items: stretch;
     align-content: stretch;
   }
 
 
 
-  // frame
+  /* frame */
+
   .top, .bottom {
-    flex-basis: $cell_frame;
+    flex-basis: var(--cellFrame);
     flex-shrink: 0;
     cursor: row-resize;
   }
+
   .left, .right {
-    flex-basis: $cell_frame;
+    flex-basis: var(--cellFrame);
     flex-shrink: 0;
     cursor: col-resize;
   }
 
-  // debug
+  /* debug frame */
   /*
   .left { background-color: yellow }
   .top > .left { background-color: lime }
@@ -555,15 +535,20 @@
   .layout-cell > .middle > .center {
     width: 100%;
     height: 100%;
-    //overflow: auto; // auto scroll (default)
+    /*overflow: auto; auto scroll (default) */
   }
 
   .layout-cell > .middle {
-    overflow: auto; // keep layout size 100% (why overflow?)
+    overflow: auto;
+    /* keep layout size 100% (why overflow?) */
   }
 
+
+
+  /* frame border */
+
   .layout-cell > * > .frame {
-    // border is inside
+    /* border is inside */
     box-sizing: border-box;
   }
 
@@ -572,16 +557,19 @@
     border-right: none;
     border-bottom: none;
   }
+
   .layout-cell > .middle > .right {
     border-top: none;
     border-left: none;
     border-bottom: none;
   }
+
   .layout-cell > .top > .center {
     border-bottom: none;
     border-left: none;
     border-right: none;
   }
+
   .layout-cell > .bottom > .center {
     border-top: none;
     border-left: none;
@@ -592,14 +580,17 @@
     border-top: none;
     border-right: none;
   }
+
   .layout-cell > .bottom > .right {
     border-top: none;
     border-left: none;
   }
+
   .layout-cell > .top > .left {
     border-bottom: none;
     border-right: none;
   }
+
   .layout-cell > .top > .right {
     border-bottom: none;
     border-left: none;
