@@ -111,10 +111,6 @@ most users want to add style to their `App.svelte`, like
 
 ## todo 
 
-* online demo  
-  problem: [inliner](https://github.com/remy/inliner) produces empty `<body>`  
-  also `save page` in browser dont work
-
 * avoid changing body style?  
   only 'stop selecting text' in layout containers?
 
