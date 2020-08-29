@@ -1,15 +1,17 @@
 diff --git a/public/index.html b/public/index.html
-index 5da7ed3..f0621b4 100644
+index 5da7ed3..5ab1f1d 100644
 --- a/public/index.html
 +++ b/public/index.html
-@@ -4,15 +4,17 @@
+@@ -2,17 +2,17 @@
+ <html lang="en">
+ <head>
  	<meta charset='utf-8'>
- 	<meta name='viewport' content='width=device-width,initial-scale=1'>
+-	<meta name='viewport' content='width=device-width,initial-scale=1'>
  
 -	<title>Svelte app</title>
 +	<title>svelte-layout-resizable-demo</title>
  
- 	<link rel='icon' type='image/png' href='/favicon.png'>
+-	<link rel='icon' type='image/png' href='/favicon.png'>
  	<link rel='stylesheet' href='/global.css'>
  	<link rel='stylesheet' href='/build/bundle.css'>
  
@@ -23,10 +25,10 @@ index 5da7ed3..f0621b4 100644
 +
  </html>
 diff --git a/src/App.svelte b/src/App.svelte
-index 10faec7..c1e0bfa 100644
+index 10faec7..21d74b0 100644
 --- a/src/App.svelte
 +++ b/src/App.svelte
-@@ -1,30 +1,54 @@
+@@ -1,30 +1,62 @@
  <script>
 -	export let name;
 +  import L from 'svelte-layout-resizable';
@@ -46,25 +48,21 @@ index 10faec7..c1e0bfa 100644
 +  <L>cell 3 in row</L>
 +</L>
  
--<style>
+ <style>
 -	main {
 -		text-align: center;
 -		padding: 1em;
 -		max-width: 240px;
 -		margin: 0 auto;
 -	}
-+<style lang="scss">
- 
+-
 -	h1 {
 -		color: #ff3e00;
 -		text-transform: uppercase;
 -		font-size: 4em;
 -		font-weight: 100;
 -	}
-+  $layoutBorderColor: #a8a8a8;
-+  $layoutBorderWidth: 0.5px;
-+  $layoutPadding: 2.5px;
- 
+-
 -	@media (min-width: 640px) {
 -		main {
 -			max-width: none;
@@ -72,10 +70,19 @@ index 10faec7..c1e0bfa 100644
 -	}
 -</style>
 \ No newline at end of file
++
++  /* css variables */
++  :global(body) {
++    --layoutBorderColor: #a8a8a8;
++    --layoutBorderWidth: 0.5px;
++    --layoutPadding: 2.5px;
++  }
++
 +  /* layout */
 +  :global(body) {
 +    padding:0;
 +  }
++
 +  :global(.layout-cell>.middle>.center) {
 +    /* content cell: add scrollbars when needed */
 +    overflow: auto;
@@ -84,21 +91,25 @@ index 10faec7..c1e0bfa 100644
 +    justify-content: center;
 +    align-items: center;
 +  }
++
 +  :global(.layout-cell>*>.frame) {
 +    /* frame color and border */
 +    /*background-color: #f4f4f4;*/
-+    border: solid $layoutBorderWidth $layoutBorderColor;
++    border: solid var(--layoutBorderWidth) var(--layoutBorderColor);
 +  }
++
 +  :global(.layout-cell>*, .layout-cell>*>.frame) {
 +    /* frame size
 +       larger frames are better acccessible (touchscreen) */
-+    flex-basis: $layoutPadding !important;
++    flex-basis: var(--layoutPadding) !important;
 +  }
++
 +  /* use css classes on cells like
 +     <L class="overflow-hidden">....</L> */
 +  :global(.layout-cell>.middle>.center.overflow-hidden) {
 +    overflow: hidden !important;
 +  }
++
 +  /* use css classes on containers like
 +     <L row class="custom-row-container">....</L> */
 +  :global(.layout-row.custom-row-container) {
