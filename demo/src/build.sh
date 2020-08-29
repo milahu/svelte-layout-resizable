@@ -22,3 +22,4 @@ sleep 4 # wait for webserver to start
 npx inliner http://localhost:5000/ > ../demo.html
 
 kill %1 # kill webserver
+clear
