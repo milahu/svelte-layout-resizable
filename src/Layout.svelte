@@ -408,7 +408,7 @@
 
 <style>
 
-  :root {
+  :global(body) {
     /* css variables */
     --handleSize: 1px; /* visible handle size */
     --handlePadding: 4px; /* clickable size */

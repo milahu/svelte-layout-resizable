@@ -10,16 +10,16 @@ $npx_exe degit sveltejs/template "$p"
 cd "$p"
 $npm_exe install
 $npm_exe install -D ../../../../svelte-layout-resizable/
-$npm_exe install -D svelte-preprocess node-sass
 
 patch -p1 < ../demo.patch
 
 $npm_exe install -D inliner
-npm run build
-npm run start &
+$npm_exe run build
+$npm_exe run start &
 
 sleep 4 # wait for webserver to start
-npx inliner http://localhost:5000/ > ../demo.html
+$npx_exe --quiet inliner http://localhost:5000/ > ../demo.html
 
 kill %1 # kill webserver
 clear
+echo done demo.html

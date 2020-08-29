@@ -22,30 +22,6 @@ index 5da7ed3..f0621b4 100644
 +<script src='/build/bundle.js'></script>
 +
  </html>
-diff --git a/rollup.config.js b/rollup.config.js
-index ecdc627..7c16906 100644
---- a/rollup.config.js
-+++ b/rollup.config.js
-@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
- import commonjs from '@rollup/plugin-commonjs';
- import livereload from 'rollup-plugin-livereload';
- import { terser } from 'rollup-plugin-terser';
-+import sveltePreprocess from 'svelte-preprocess';
- 
- const production = !process.env.ROLLUP_WATCH;
- 
-@@ -43,7 +44,10 @@ export default {
- 			// a separate file - better for performance
- 			css: css => {
- 				css.write('bundle.css');
--			}
-+			},
-+      preprocess: [
-+        sveltePreprocess(),
-+      ],
- 		}),
- 
- 		// If you have external dependencies installed from
 diff --git a/src/App.svelte b/src/App.svelte
 index 10faec7..c1e0bfa 100644
 --- a/src/App.svelte
