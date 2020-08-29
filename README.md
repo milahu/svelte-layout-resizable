@@ -56,7 +56,7 @@ export default {
 and install
 
 ```sh
-npm i -D svelte-preprocess scss
+npm i -D svelte-preprocess node-sass
 ```
 
 ## style
