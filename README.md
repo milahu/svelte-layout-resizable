@@ -2,6 +2,8 @@
 
 resizable layout component for svelte
 
+[live demo](https://milahu.github.io/svelte-layout-resizable/demo/demo.html)
+
 ## usage
 
 in your `App.svelte` add
