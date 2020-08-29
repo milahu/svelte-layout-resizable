@@ -109,7 +109,9 @@ most users want to add style to their `App.svelte`, like
 * [svelte-grid](https://github.com/vaheqelyan/svelte-grid)
 * [other svelte layout components](https://svelte-community.netlify.app/code/?tag=layout+and+structure) in svelte-community
 
-## todo 
+## todo
+
+* avoid scss dependency, use css variables
 
 * avoid changing body style?  
   only 'stop selecting text' in layout containers?
