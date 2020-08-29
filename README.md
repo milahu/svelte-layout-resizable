@@ -35,32 +35,6 @@ if you dont like the `<L>` syntax
 you can do `import Layout from 'svelte-layout-resizable';`  
 and use `<Layout>cell</Layout>`
 
-## build
-
-the component uses `<style lang="scss">`  
-so we add to `rollup.config.js`:
-
-```js
-import sveltePreprocess from 'svelte-preprocess';
-
-export default {
-  plugins: [
-    svelte({
-      preprocess: [
-        // transform scss (etc) in svelte components
-        sveltePreprocess(),
-      ],
-    }),
-  ],
-};
-```
-
-and install
-
-```sh
-npm i -D svelte-preprocess node-sass
-```
-
 ## style
 
 the component defines only a minimal style  
@@ -110,8 +84,6 @@ most users want to add style to their `App.svelte`, like
 * [other svelte layout components](https://svelte-community.netlify.app/code/?tag=layout+and+structure) in svelte-community
 
 ## todo
-
-* avoid scss dependency, use css variables
 
 * avoid changing body style?  
   only 'stop selecting text' in layout containers?
