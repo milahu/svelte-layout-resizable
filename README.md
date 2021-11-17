@@ -82,6 +82,7 @@ most users want to add style to their `App.svelte`, like
 * [svelte-subdivide](https://github.com/sveltejs/svelte-subdivide) [[v3](https://github.com/saabi/svelte-subdivide/tree/v3)]
 * [svelte-grid](https://github.com/vaheqelyan/svelte-grid)
 * [other svelte layout components](https://svelte-community.netlify.app/code/?tag=layout+and+structure) in svelte-community
+* [solidjs-resizable-splitter-component](https://github.com/milahu/solidjs-resizable-splitter-component) port of this library for the solidjs framework
 
 ## todo
 
