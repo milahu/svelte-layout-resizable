@@ -4,6 +4,13 @@ resizable layout component for svelte
 
 [live demo](https://milahu.github.io/svelte-layout-resizable/demo/demo.html)
 
+## status
+
+:warning: deprecated in favor of
+
+- [split](https://github.com/nathancahill/split) - utilities for resizeable split views
+- [areas](https://github.com/bimdata/areas) - A Vue.js Blender style area manager to create custom layouts
+
 ## usage
 
 in your `App.svelte` add
